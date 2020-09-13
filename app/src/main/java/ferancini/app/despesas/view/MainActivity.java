@@ -1,8 +1,10 @@
-package ferancini.app.despesas;
+package ferancini.app.despesas.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import ferancini.app.despesas.R;
 
 public class MainActivity extends AppCompatActivity {
 

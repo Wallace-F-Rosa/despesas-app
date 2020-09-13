@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Despesas</string>
+    <string name="tabOrcamento">Orçamentos</string>
+    <string name="tabDespesas">Despesas</string>
 </resources>
