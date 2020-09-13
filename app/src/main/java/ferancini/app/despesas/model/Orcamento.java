@@ -1,4 +1,4 @@
-package com.example.despesas.model;
+package  ferancini.app.despesas.model;
 
 import java.math.BigDecimal;
 import java.util.List;
