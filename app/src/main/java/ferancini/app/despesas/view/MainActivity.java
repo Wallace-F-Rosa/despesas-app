@@ -23,7 +23,28 @@ public class MainActivity extends AppCompatActivity {
         this.tabMenu = findViewById(R.id.tabMenu);
         this.tabDespesas = findViewById(R.id.tabDespesas);
         this.tabOrcamento = findViewById(R.id.tabOrcamento);
-        ViewPager viewPager = findViewById(R.id.viewPager);
+        final ViewPager viewPager = findViewById(R.id.viewPager);
+        PagerAdapter pagerAdapter = new PagerAdapter(
+                getSupportFragmentManager(),
+                tabMenu.getTabCount()
+        );
+        viewPager.setAdapter(pagerAdapter);
 
+        tabMenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 }
