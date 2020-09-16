@@ -7,9 +7,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.google.android.material.tabs.TabLayout;
 
+import ferancini.app.despesas.model.Orcamento;
+
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private int tabN;
+    private OrcamentoFragment orcamentoFrag;
+    private DespesaFragment despesaFrag;
 
     public PagerAdapter(@NonNull FragmentManager fm, int tabN) {
         super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -22,9 +26,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
         //TODO: return fragments
         switch(position){
             case 0 :
-                return new OrcamentoFragment();
+                return this.getOrcamentoFrag();
             case 1 :
-                return new DespesaFragment();
+                return this.getDespesaFrag();
             default:
                 return null;
         }
@@ -33,5 +37,17 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return this.tabN;
+    }
+
+    public OrcamentoFragment getOrcamentoFrag() {
+        if (this.orcamentoFrag == null)
+            this.orcamentoFrag = new OrcamentoFragment();
+        return this.orcamentoFrag;
+    }
+
+    public DespesaFragment getDespesaFrag() {
+        if (this.despesaFrag == null)
+            this.despesaFrag = new DespesaFragment();
+        return this.despesaFrag;
     }
 }
