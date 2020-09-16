@@ -1,4 +1,4 @@
-package ferancini.app.despesas.view;
+package ferancini.app.despesas.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import ferancini.app.despesas.R;
+import ferancini.app.despesas.view.PagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
