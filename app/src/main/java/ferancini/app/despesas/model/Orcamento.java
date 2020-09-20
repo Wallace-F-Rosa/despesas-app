@@ -31,18 +31,20 @@ public class Orcamento {
     private List<Item> items;
     private static List<Orcamento> all_orcamentos = new ArrayList<Orcamento>();
 
-    public Orcamento(){
+    private void default_attributes(){
         this.items = new ArrayList<Item>();
         this.nome = "";
         this.descricao = "";
         this.tipo = 3;
+    }
+
+    public Orcamento(){
+        this.default_attributes();
         Orcamento.all_orcamentos.add(this);
     }
 
     public Orcamento(List<Item> items) {
-        this.nome = "";
-        this.descricao = "";
-        this.tipo = 3;
+        this.default_attributes();
         this.items = items;
         Orcamento.all_orcamentos.add(this);
     }
