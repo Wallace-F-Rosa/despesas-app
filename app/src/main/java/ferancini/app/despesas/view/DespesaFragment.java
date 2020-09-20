@@ -3,12 +3,15 @@ package ferancini.app.despesas.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import ferancini.app.despesas.R;
+import ferancini.app.despesas.model.Orcamento;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +19,9 @@ import ferancini.app.despesas.R;
  * create an instance of this fragment.
  */
 public class DespesaFragment extends Fragment {
+    //membros de OrcamentoFragment e DespesaFragment
+    private RecyclerView recyclerV; //pode ser o componente do OrcamentoFragment ou do DespesaFragment
+    private LinearLayoutManager ltmg; // gerenciador de layout
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +67,11 @@ public class DespesaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_despesa, container, false);
+        View v = inflater.inflate(R.layout.fragment_despesa, container, false);
+        recyclerV= v.findViewById(R.id.despesas_list);
+        recyclerV.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        OrcamentoListAdapter adapterOrc = new OrcamentoListAdapter(v.getContext(), Orcamento.getAllOrcamentos());
+        recyclerV.setAdapter(adapterOrc);
+        return v;
     }
 }
