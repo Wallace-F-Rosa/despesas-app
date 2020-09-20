@@ -1,19 +1,25 @@
 package ferancini.app.despesas.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import ferancini.app.despesas.R;
+import ferancini.app.despesas.model.Despesa;
+import ferancini.app.despesas.model.Orcamento;
+import ferancini.app.despesas.view.DespesaListAdapter;
+import ferancini.app.despesas.view.OrcamentoListAdapter;
 import ferancini.app.despesas.view.PagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    //membros de tela principal
     private TabLayout tabMenu;
     private TabItem tabDespesas;
     private TabItem tabOrcamento;
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 }
