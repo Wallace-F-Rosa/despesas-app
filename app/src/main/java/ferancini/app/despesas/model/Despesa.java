@@ -1,6 +1,8 @@
 package ferancini.app.despesas.model;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 /**
  * Classe Despesa.
  * Registra uma despesa.
@@ -14,16 +16,19 @@ public class Despesa {
     private String nome;
     private BigDecimal valor;
     private Item item_orcamento;
+    private static List<Despesa> all_despesas;
 
     public Despesa(String _descricao, BigDecimal _valor, Item _item_orcamento){
         this.nome =_descricao;
         this.valor = _valor;
         this.item_orcamento = _item_orcamento;
+        Despesa.all_despesas.add(this);
     }
 
     public Despesa(String nome, BigDecimal valor) {
         this.nome = nome;
         this.valor = valor;
+        Despesa.all_despesas.add(this);
     }
 
     public String getNome() {
@@ -49,4 +54,9 @@ public class Despesa {
     public void setItem_orcamento(Item item_orcamento) {
         this.item_orcamento = item_orcamento;
     }
+
+    public static List<Despesa> getAllDespesas(){
+        return Despesa.all_despesas;
+    }
+
 }
