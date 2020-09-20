@@ -43,4 +43,5 @@
         app:layout_constraintTop_toBottomOf="@+id/tabMenu">
 
     </androidx.viewpager.widget.ViewPager>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
