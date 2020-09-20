@@ -11,27 +11,27 @@ import java.math.BigDecimal;
  * @see Orcamento
  * */
 public class Despesa {
-    private String descricao;
+    private String nome;
     private BigDecimal valor;
     private Item item_orcamento;
 
     public Despesa(String _descricao, BigDecimal _valor, Item _item_orcamento){
-        this.descricao=_descricao;
+        this.nome =_descricao;
         this.valor = _valor;
         this.item_orcamento = _item_orcamento;
     }
 
-    public Despesa(String descricao, BigDecimal valor) {
-        this.descricao = descricao;
+    public Despesa(String nome, BigDecimal valor) {
+        this.nome = nome;
         this.valor = valor;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public BigDecimal getValor() {
