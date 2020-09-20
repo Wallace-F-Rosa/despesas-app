@@ -29,12 +29,14 @@ public class Orcamento {
     private String descricao;
     private int tipo;
     private List<Item> items;
+    private static List<Orcamento> all_orcamentos = new ArrayList<Orcamento>();
 
     public Orcamento(){
         this.items = new ArrayList<Item>();
         this.nome = "";
         this.descricao = "";
         this.tipo = 3;
+        Orcamento.all_orcamentos.add(this);
     }
 
     public Orcamento(List<Item> items) {
@@ -42,6 +44,7 @@ public class Orcamento {
         this.descricao = "";
         this.tipo = 3;
         this.items = items;
+        Orcamento.all_orcamentos.add(this);
     }
 
     public Orcamento(String nome, String descricao, int tipo, List<Item> items) {
@@ -49,6 +52,7 @@ public class Orcamento {
         this.descricao = descricao;
         this.tipo = tipo;
         this.items = items;
+        Orcamento.all_orcamentos.add(this);
     }
 
     public String getNome() {
@@ -116,5 +120,9 @@ public class Orcamento {
         BigDecimal valor_orcamento = this.getValor();
         BigDecimal valor_depesas =  this.getValorDespesas();
         return valor_orcamento.subtract(valor_depesas);
+    }
+
+    static public List<Orcamento> getAllOrcamentos(){
+        return Orcamento.all_orcamentos;
     }
 }
