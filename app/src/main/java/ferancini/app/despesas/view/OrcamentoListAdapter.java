@@ -41,7 +41,7 @@ public class OrcamentoListAdapter extends RecyclerView.Adapter<OrcamentoListAdap
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataset.size();
     }
 
     public class OrcamentoViewHolder extends RecyclerView.ViewHolder{
