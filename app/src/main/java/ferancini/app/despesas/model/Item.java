@@ -1,6 +1,7 @@
 package ferancini.app.despesas.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,21 +12,38 @@ import java.util.List;
  * @see Orcamento
  * */
 public class Item {
-    private String descricao;
+    private String nome;
     private BigDecimal valor;
     private List<Despesa> despesas;
+    private Orcamento orcamento;
 
-    public Item(String descricao, BigDecimal valor) {
-        this.descricao = descricao;
+    public Item(Orcamento orcamento){
+        this.nome="";
+        this.valor = new BigDecimal("0.0");
+        this.despesas = new ArrayList<Despesa>();
+        this.orcamento = orcamento;
+    }
+
+    public Item(Orcamento orcamento, List<Despesa> despesas){
+        this.nome="";
+        this.valor = new BigDecimal("0.0");
+        this.despesas = despesas;
+        this.orcamento = orcamento;
+    }
+
+    public Item(String nome, BigDecimal valor, Orcamento orcamento, List<Despesa> despesas) {
+        this.nome = nome;
         this.valor = valor;
+        this.despesas = new ArrayList<Despesa>();
+        this.orcamento = orcamento;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public BigDecimal getValor() {
@@ -43,4 +61,13 @@ public class Item {
     public void setDespesas(List<Despesa> despesas) {
         this.despesas = despesas;
     }
+
+    public Orcamento getOrcamento() {
+        return orcamento;
+    }
+
+    public void setOrcamento(Orcamento orcamento) {
+        this.orcamento = orcamento;
+    }
 }
+
