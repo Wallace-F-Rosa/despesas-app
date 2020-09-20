@@ -1,17 +1,17 @@
 package  ferancini.app.despesas.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Classe de orçamento.
  * Contém um nome indentificando o orçamento, uma descrição
- * Um orçamento é uma agregação de vários items.
+ * Um orçamento é uma associação de vários items.
  * É um dos tipos :
  * - 0: diário, repete todos os dias
  * - 1: semanal, repete a cada 7 dias
  * - 2: mensal, repete a cada mes
- * - 3: repete a cada n dias
  * Contém as despesas associadas com o orçamento
  * Capacidades:
  * - Consegue retornar os items que formam o orçamento
@@ -30,10 +30,18 @@ public class Orcamento {
     private int tipo;
     private List<Item> items;
 
-    public Orcamento(String nome, String descricao, int tipo) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.tipo = tipo;
+    public Orcamento(){
+        this.items = new ArrayList<Item>();
+        this.nome = "";
+        this.descricao = "";
+        this.tipo = 3;
+    }
+
+    public Orcamento(List<Item> items) {
+        this.nome = "";
+        this.descricao = "";
+        this.tipo = 3;
+        this.items = items;
     }
 
     public Orcamento(String nome, String descricao, int tipo, List<Item> items) {
