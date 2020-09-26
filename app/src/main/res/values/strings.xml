@@ -2,4 +2,12 @@
     <string name="app_name">Despesas</string>
     <string name="tabOrcamento">Orçamentos</string>
     <string name="tabDespesas">Despesas</string>
+    <string name="addOrcamento_activity_title">Adicionar Orçamento</string>
+    <string name="hint_orcamento_nome">Nome do orçamento</string>
+    <string name="hint_orcamento_descricao">Descriçao</string>
+    <string-array name="periodo_array">
+        <item value="0">Diário</item>
+        <item value="1">Semanal</item>
+        <item value="2">Mensal</item>
+    </string-array>
 </resources>
