@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ferancini.app.despesas.R;
+import ferancini.app.despesas.model.Despesa;
 import ferancini.app.despesas.model.Orcamento;
 
 /**
@@ -22,6 +23,7 @@ public class DespesaFragment extends Fragment {
     //membros de OrcamentoFragment e DespesaFragment
     private RecyclerView recyclerV; //pode ser o componente do OrcamentoFragment ou do DespesaFragment
     private LinearLayoutManager ltmg; // gerenciador de layout
+    private DespesaListAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,14 +66,24 @@ public class DespesaFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        //atualiza o recycleView para exibir itens que possam ter sido inseridos
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_despesa, container, false);
         recyclerV= v.findViewById(R.id.despesas_list);
-        recyclerV.setLayoutManager(new LinearLayoutManager(v.getContext()));
-        OrcamentoListAdapter adapterOrc = new OrcamentoListAdapter(v.getContext(), Orcamento.getAllOrcamentos());
-        recyclerV.setAdapter(adapterOrc);
+        if(ltmg == null)
+            ltmg = new LinearLayoutManager(v.getContext());
+        recyclerV.setLayoutManager(ltmg);
+        if(adapter == null)
+            adapter = new DespesaListAdapter(getActivity(), Despesa.getAllDespesas());
+        recyclerV.setAdapter(adapter);
         return v;
     }
 }
