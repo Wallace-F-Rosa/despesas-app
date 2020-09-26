@@ -1,6 +1,7 @@
 package ferancini.app.despesas.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class Despesa {
     private String nome;
     private BigDecimal valor;
     private Item item_orcamento;
-    private static List<Despesa> all_despesas;
+    private static List<Despesa> all_despesas = new ArrayList<Despesa>();
 
     public Despesa(String _descricao, BigDecimal _valor, Item _item_orcamento){
         this.nome =_descricao;
