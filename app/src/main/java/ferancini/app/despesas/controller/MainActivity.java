@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -57,4 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //código a ser disparado pelo evento onclick no botão btnAddDespesa
+    public void onClickAddDespesa(View v){
+        System.out.println(Orcamento.getAllOrcamentos());
+    }
+
+    //código a ser disparado pelo evento onclick no botão btnAddOrcamento
+    public void onClickAddOrcamento(View v){
+        //ao cliclar no botão abrimos a activity de adicionar orçamentos
+        Intent intent =  new Intent(this, AddOrcamentoActivity.class);
+        startActivity(intent);
+    }
 }
