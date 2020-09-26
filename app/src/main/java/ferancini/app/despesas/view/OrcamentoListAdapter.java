@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import ferancini.app.despesas.R;
@@ -16,17 +18,23 @@ import ferancini.app.despesas.model.Orcamento;
 
 public class OrcamentoListAdapter extends RecyclerView.Adapter<OrcamentoListAdapter.OrcamentoViewHolder>{
     private List<Orcamento> dataset;
-    private Context context;
 
-    public OrcamentoListAdapter(Context ct, List<Orcamento> dataset){
+    public OrcamentoListAdapter(){
+        this.dataset = new ArrayList<Orcamento>();
+    }
+
+    public OrcamentoListAdapter(List<Orcamento> dataset){
         this.dataset = dataset;
-        this.context = ct;
+    }
+
+    public void setDataset(List<Orcamento> dataset) {
+        this.dataset = dataset;
     }
 
     @NonNull
     @Override
     public OrcamentoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.orcamento_view_item, parent, false);
         return new OrcamentoViewHolder(view);
     }
@@ -35,8 +43,8 @@ public class OrcamentoListAdapter extends RecyclerView.Adapter<OrcamentoListAdap
     public void onBindViewHolder(@NonNull OrcamentoViewHolder holder, int position) {
         Orcamento orc = this.dataset.get(position);
         holder.txtNome.setText(orc.getNome());
-        holder.txtItens.setText(orc.getItems().size());
-        holder.txtTotal.setText(orc.getTotal().toString());
+        holder.txtItens.setText("Nº de itens : "+ orc.getItems().size());
+        holder.txtTotal.setText(""+orc.getTotal().toString());
     }
 
     @Override
